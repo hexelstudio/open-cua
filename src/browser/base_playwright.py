@@ -8,4 +8,3 @@ with sync_playwright()  as p:
     page = context.new_page()
     page.goto("https://hexelstudio.com")
     browser.close()
-    
