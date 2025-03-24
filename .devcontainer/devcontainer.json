@@ -1,15 +1,14 @@
 {
   "name": "Open-CUA Development Environment",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+  "remoteUser": "root",
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
         "editor.formatOnSave": true,
-        "python.linting.enabled": true
+        "python.linting.enabled": true,
+        "python.terminal.activateEnvInCurrentTerminal": true
       },
       "extensions": [
         "ms-python.python",
@@ -18,13 +17,16 @@
       ]
     }
   },
-  "forwardPorts": [8000],
-  
-  // Cache pip packages
-  "mounts": [
-    "source=pip-cache,target=/root/.cache/pip,type=volume"
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "forwardPorts": [
+    8000
   ],
-  
-  // Install project dependencies
-  "postCreateCommand": "pip install -r requirements.txt"
+  "runArgs": [
+    "--network=host"
+  ],
+  "mounts": [
+    "source=pip-cache,target=/workspace/.cache/pip,type=volume"
+  ],
+  "postCreateCommand": "python -m venv /workspace/.venv && /workspace/.venv/bin/pip install -r requirements.txt"
 }

@@ -1,10 +1,7 @@
-FROM python:3.12-slim
+# syntax=docker/dockerfile:1
+FROM mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
 
-# Avoid buffering issues and unnecessary .pyc files
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-# Install necessary packages
+# Install additional packages if needed
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
@@ -14,3 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Set the working directory
 WORKDIR /workspace
+
+# Do NOT switch to a non-root user; remain as root
+# USER vscode
+
+# (Optional) Add any additional root-specific commands below

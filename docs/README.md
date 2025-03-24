@@ -1,3 +1,6 @@
 # ⚠️ Warning
 
-**THIS REPO IS A WORK IN PROGRESS AND NOT INTENDED FOR USE YET**
+```bash
+chmod +x scripts/playwright.sh
+sudo bash scripts/playwright.sh
+```
