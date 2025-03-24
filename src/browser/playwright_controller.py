@@ -9,3 +9,6 @@ with sync_playwright() as p:
     page.goto("https://hexelstudio.com")
     input("Press enter to exit...")
     browser.close()
+    
+
+        
