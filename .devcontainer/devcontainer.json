@@ -1,0 +1,30 @@
+{
+  "name": "Open-CUA Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true,
+        "python.linting.enabled": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "forwardPorts": [8000],
+  
+  // Cache pip packages
+  "mounts": [
+    "source=pip-cache,target=/root/.cache/pip,type=volume"
+  ],
+  
+  // Install project dependencies
+  "postCreateCommand": "pip install -r requirements.txt"
+}
