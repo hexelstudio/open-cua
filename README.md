@@ -1,7 +1,3 @@
-Below is a detailed introductory README page that mirrors the provided example while adding extra context and actionable details for contributors and users:
-
----
-
 # OPEN-CUA: Open-Source LLM-Based Browser & Computer Agent Framework
 
 Welcome to **OPEN-CUA** – an open-source project under HexelStudio dedicated to building a next-generation, LLM-powered browser and computer-use agent framework. Our mission is to harness the power of advanced language models to create intelligent, adaptive agents that enhance user interactions and boost computing efficiency.
